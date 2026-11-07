@@ -9,4 +9,7 @@ Simple command-line rock-paper-scissors game in Python. Play against the compute
 ## How to play
 
 - Enter 1 for rock, 2 for scissors, 3 for paper
-- Enter q to quit and see the final score
+- Rock beats scissors, scissors beat paper, paper beats rock
+- The first player to win 3 rounds wins the match
+- Draws don't count
+- Enter q at any time to quit
