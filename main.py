@@ -1,5 +1,7 @@
 import random
 
+WINNING_SCORE = 3
+
 CHOICES = {
     "1": "rock",
     "2": "scissors",
@@ -35,16 +37,20 @@ def get_winner(player, computer):
     return "computer"
 
 
-def main():
+def play_match():
+    """Play until someone reaches WINNING_SCORE.
+
+    Return True if the match finished, False if the player quit.
+    """
     player_score = 0
     computer_score = 0
 
-    print("Rock Paper Scissors")
+    print(f"\nFirst to {WINNING_SCORE} wins takes the match!")
 
-    while True:
+    while player_score < WINNING_SCORE and computer_score < WINNING_SCORE:
         player = get_player_choice()
         if player is None:
-            break
+            return False
 
         computer = random.choice(list(CHOICES.values()))
         print(f"Computer chose: {computer}")
@@ -61,7 +67,26 @@ def main():
 
         print(f"Score: you {player_score} : {computer_score} computer")
 
-    print(f"\nFinal score: you {player_score} : {computer_score} computer")
+    if player_score > computer_score:
+        print("\nYou won the match!")
+    else:
+        print("\nComputer won the match.")
+    return True
+
+
+def ask_play_again():
+    answer = input("\nPlay again? (y/n): ").strip().lower()
+    return answer == "y"
+
+
+def main():
+    print("Rock Paper Scissors")
+
+    while True:
+        finished = play_match()
+        if not finished or not ask_play_again():
+            break
+
     print("Thanks for playing!")
 
 
