@@ -1,6 +1,7 @@
-# Rock Paper Scissors
+# Rock Paper Scissors - Game project for myself to practice 
 
 Simple command-line rock-paper-scissors game in Python. Play against the computer and keep score.
+
 
 ## How to run
 
